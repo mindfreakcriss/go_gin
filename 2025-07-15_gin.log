@@ -1,0 +1,22 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /index                    --> main.main.func1 (5 handlers)
+[GIN-debug] POST   /login                    --> main.main.func2 (5 handlers)
+[GIN-debug] POST   /user                     --> main.main.func3 (5 handlers)
+[GIN-debug] GET    /smart/hello              --> main.main.func4 (5 handlers)
+[GIN-debug] POST   /db/sync                  --> github.com/controller.Migrate (5 handlers)
+[GIN-debug] POST   /user/register            --> github.com/controller.Register (5 handlers)
+[GIN-debug] POST   /user/login               --> github.com/controller.Login (5 handlers)
+[GIN-debug] POST   /user/getByName           --> github.com/controller.GetUserByName (5 handlers)
+[GIN-debug] DELETE /user/:id                 --> github.com/controller.DeleteById (5 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :9080
+[GIN] 2025/07/15 - 21:26:49 | 500 |     2.11775ms |             ::1 | DELETE   "/user/1"
+[GIN] 2025/07/15 - 21:26:49 | 500 |       2.241ms |             ::1 | DELETE   "/user/1"
+[GIN] 2025/07/15 - 21:26:50 | 500 |     565.167µs |             ::1 | DELETE   "/user/1"
+[GIN] 2025/07/15 - 21:26:50 | 500 |     613.292µs |             ::1 | DELETE   "/user/1"

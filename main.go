@@ -1,11 +1,13 @@
 package main
 
 import (
+	"fmt"
 	"github.com/controller"
 	"github.com/gin-gonic/gin"
 	"io"
 	"net/http"
 	"os"
+	"time"
 )
 
 type User struct {
@@ -35,7 +37,15 @@ func main() {
 	// You can initialize your application here.
 
 	//日志
-	f, _ := os.Create("gin.log")
+	now := time.Now()
+	year := now.Year()
+	month := now.Month()
+	day := now.Day()
+
+	var file_name string
+	file_name = fmt.Sprintf("%d-%02d-%02d", year, month, day)
+
+	f, _ := os.Create(file_name + "_gin.log")
 
 	// 设置gin的日志输出到文件和控制台
 	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
