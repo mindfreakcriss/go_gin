@@ -118,6 +118,9 @@ func main() {
 	{
 		// 用户注册
 		user.POST("/register", controller.Register)
+		user.POST("/login", controller.Login)             // 假设有一个登录处理函数
+		user.POST("/getByName", controller.GetUserByName) // 假设有一个根据用户名获取用户信息的处理函数
+		user.DELETE("/:id", controller.DeleteById)        // 假设有一个更新用户信息的处理函数
 	}
 
 	r.Run(":9080")
