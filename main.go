@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/controller"
 	"github.com/gin-gonic/gin"
 	"io"
 	"net/http"
@@ -108,6 +109,16 @@ func main() {
 			"error": "this is my 405 Method Not Allowed",
 		})
 	})
+
+	//命令行处理数据库内容
+	r.POST("db/sync", controller.Migrate)
+
+	//用户相关的路由
+	user := r.Group("/user")
+	{
+		// 用户注册
+		user.POST("/register", controller.Register)
+	}
 
 	r.Run(":9080")
 }
